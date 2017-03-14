@@ -62,7 +62,7 @@ Image[] getImages(Article article) {
 	char[] content;
 	try {
 		content = get(article.getURL());
-		auto r = regex(format("<a href=\"http://img.moeimg.net/wp-content/uploads/archives([0-9])/%s/(.+)\" target=\"_blank\">", article.index));
+		auto r = regex(format("<a href=\"http://img.moeimg.net/wp-content/uploads/archives([0-9].*)/%s/(.+)\" target=\"_blank\">", article.index));
 		foreach(c; matchAll(content, r)) {
 			result ~= Image(c[1], c[2], article);
 		}
