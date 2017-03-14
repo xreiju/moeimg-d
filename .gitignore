@@ -4,3 +4,4 @@ main
 .dub
 libmoeimg-d.a
 demo
+dub.selections.json

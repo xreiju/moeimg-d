@@ -3,5 +3,8 @@
 	"targetType": "library",
 	"description": "moeimg-d is a library to download images from moeimg.net.",
 	"license": "MIT",
-	"authors": [ "Reiju" ]
+	"authors": [ "Reiju" ],
+	"dependencies": {
+		"requests": "~>0.4.0"
+	}
 }

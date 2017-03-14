@@ -1,6 +1,6 @@
 module moeimgd.moeimg;
 
-import std.stdio, std.regex, std.net.curl, std.conv, std.string, std.traits;
+import std.stdio, std.regex, std.conv, std.string, std.traits, requests;
 
 struct Article {
 	string index;
@@ -42,9 +42,8 @@ struct Image {
 
 Article[] getArticles(uint page) {
 	Article[] result;
-	char[] content;
 	try {
-		content = get(format("moeimg.net/page/%d", page));
+		auto content = to!string(getContent(format("http://moeimg.net/page/%d", page)));
 		auto r = ctRegex!("<a href=\"http://moeimg.net/([0-9]+?).html\" title=\"(.+?)\">");
 		foreach(c; matchAll(content, r)) {
 			result ~= Article(c[1], c[2]);
@@ -59,9 +58,8 @@ Article[] getArticles(uint page) {
 
 Image[] getImages(Article article) {
 	Image[] result;
-	char[] content;
 	try {
-		content = get(article.getURL());
+		auto content = to!string(getContent(article.getURL()));
 		auto r = regex(format("<a href=\"http://img.moeimg.net/wp-content/uploads/archives([0-9].*)/%s/(.+)\" target=\"_blank\">", article.index));
 		foreach(c; matchAll(content, r)) {
 			result ~= Image(c[1], c[2], article);
