@@ -16,7 +16,7 @@ struct Article {
 	}
 
 	string getURL() {
-		return format("moeimg.net/%s.html", index);
+		return format("http://moeimg.net/%s.html", index);
 	}
 }
 
@@ -36,7 +36,7 @@ struct Image {
 		this.article = article;
 	}
 	string getURL() {
-		return format("img.moeimg.net/wp-content/uploads/archives%s/%s/%s", archive_num, article.index, filename);
+		return format("http://img.moeimg.net/wp-content/uploads/archives%s/%s/%s", archive_num, article.index, filename);
 	}
 }
 
