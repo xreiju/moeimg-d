@@ -3,3 +3,4 @@ main
 *.o
 .dub
 libmoeimg-d.a
+demo
