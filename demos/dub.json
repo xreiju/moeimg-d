@@ -1,0 +1,9 @@
+{
+	"name": "demo",
+	"description": "A moeimg-d demo",
+	"targetType": "executable",
+	"sourceFiles": ["demo.d"],
+	"dependencies": {
+		"moeimg-d": {"path": "../"}
+	}
+}

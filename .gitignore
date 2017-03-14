@@ -1,3 +1,5 @@
 imgs/
 main
 *.o
+.dub
+libmoeimg-d.a

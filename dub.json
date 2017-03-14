@@ -1,0 +1,7 @@
+{
+	"name": "moeimg-d",
+	"targetType": "library",
+	"description": "moeimg-d is a library to download images from moeimg.net.",
+	"license": "MIT",
+	"authors": [ "Reiju" ]
+}
