@@ -1,4 +1,4 @@
-import moeimgd.moeimg, std.net.curl, std.conv, std.string, std.stdio, std.file;
+import moeimgd, std.net.curl, std.conv, std.string, std.stdio, std.file;
 
 void main(string[] args) {
 	string usage =
