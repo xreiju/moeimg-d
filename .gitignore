@@ -4,4 +4,7 @@ main
 .dub
 libmoeimg-d.a
 demo
+demo.exe
+moeimg-d.lib
+
 dub.selections.json
