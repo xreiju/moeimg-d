@@ -1,6 +1,6 @@
 module moeimgd.moeimg;
 
-import std.stdio, std.regex, std.conv, std.string, std.traits, std.net.curl;
+import std.stdio, std.regex, std.conv, std.string, std.traits, std.net.curl, std.algorithm, std.range;
 
 struct Article {
 	string index;
@@ -53,14 +53,14 @@ Article[] getArticles(uint page) {
 		stderr.writeln("An error occured");
 		throw e;
 	}
-	return result;
+	return result.uniq.array;
 }
 
 Image[] getImages(Article article) {
 	Image[] result;
 	try {
 		char[] content = get(article.getURL());
-		auto r = regex(format("<a href=\"http://img.moeimg.net/wp-content/uploads/archives([0-9].*)/%s/(.+)\" target=\"_blank\">", article.index));
+		auto r = regex(format("<a href=\"http://img.moeimg.net/wp-content/uploads/archives([0-9].*?)/%s/(.+?)\" target=\"_blank\">", article.index));
 		foreach(c; matchAll(content, r)) {
 			result ~= Image(c[1], c[2], article);
 		}
